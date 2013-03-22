@@ -1,0 +1,30 @@
+/*
+Theme Name: Jorge Chamorro
+Theme URI: http://montera34.com
+Author: montera34
+Author URI: http://montera34.com
+Description: Theme for Jorge Chamorro's portfolio
+Version: 0.1
+License: GNU General Public License v2 or later
+License URI: http://www.gnu.org/licenses/gpl-2.0.html
+Tags: fix-width, responsive, bootstrap, white, typography
+Text Domain: jorgech
+
+This theme, like WordPress, is licensed under the GPL.
+Use it to make something cool, have fun, and share what you've learned with others.
+*/
+
+h1, h2, h3, h4, h5, h6 {
+	font-size: 12px;
+	line-height: 14px;
+}
+
+a:hover {
+	text-decoration: none;
+}
+.box-borderb {
+	border-bottom: 1px solid #333;
+}
+.box-padding {
+	padding: 7px 0;
+}
