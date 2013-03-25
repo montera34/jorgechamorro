@@ -1,7 +1,34 @@
 <?php get_header(); ?>
 
-<div class="container">
+
+<?php
+// archive.php loop for posts
+// output: all posts with pagination
+// The Query
+if ( have_posts() ) {
+
+	// The Loop
+	while ( have_posts() ) : the_post(); ?>
+<div class="container box-borderb">
 	<div class="row">
+
+		<?php include "margen.php";
+		include "loop.php"; ?>
+	</div>
+</div>
+	<?php endwhile;
+
+	/* Restore original Post Data 
+	 * NB: Because we are using new WP_Query we aren't stomping on the 
+	 * original $wp_query and it does not need to be reset.
+	*/
+	wp_reset_postdata();
+
+} else {
+// if no posts in this loop
+
+} ?>
+
 		<div class="span1 box-margin">
 			<h2><?php echo "Arte<br />Art"; ?></h2>
 		</div>

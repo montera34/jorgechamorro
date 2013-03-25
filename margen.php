@@ -44,6 +44,26 @@ elseif ( is_single() && get_post_type( $post->ID ) == 'proyecto' ) {
 		</p>
 	";
 } // end if single of proyecto custom post type
+
+//elseif ( is_post_type_archive() ) {
+elseif ( is_archive() && get_post_type( $post->ID ) == 'post' ) {
+// if posts archive
+	$tit_es = get_the_title();
+	$tit_en = get_post_meta( $post->ID, '_jch_pr_tit', true );
+	$desc_es = get_the_content();
+	$desc_en = get_post_meta( $post->ID, '_jch_pr_desc', true );
+	$date = get_the_date('j\.m\.y');
+
+	$margen_out = "
+		<h2>" .$tit_es. "<br />
+			<span class='muted'>" .$tit_en. "</span>
+		</h2>
+		<p>
+			" .$date. "
+		</p>
+	";
+} // end if single of proyecto custom post type
+
 ?>
 
 	<div class="span1 box-margin">
