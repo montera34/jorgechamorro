@@ -117,6 +117,26 @@ function be_sample_metaboxes( $meta_boxes ) {//metaboxes common variables to all
 			),
 		)
 	);
+	$meta_boxes[] = array(
+		'id' => 'cols',
+		'title' => 'Número de columnas de esta página',
+		'pages' => array('page'), // post type
+		'context' => 'side',
+		'priority' => 'high',
+		'show_names' => false, // Show field names on the left
+		'fields' => array(
+			array(
+				'name' => 'Número de columnas',
+				'desc' => '',
+				'id' => $prefix . 'cols',
+				'type' => 'radio_inline',
+				'options' => array(
+					array('name' => '1', 'value' => '1'),
+					array('name' => '2', 'value' => '2'),
+				)
+			),
+		),
+	);
 	return $meta_boxes;
 }
 add_filter( 'cmb_meta_boxes', 'be_sample_metaboxes' );

@@ -40,14 +40,24 @@ elseif ( is_page() ) {
 // if page
 	$desc_es = get_the_content();
 	$desc_en = get_post_meta( $post->ID, '_jch_pr_desc', true );
-	$loop_out = "
-		<div class='span3'>
-		 " .$desc_es. "
-		</div>
-		<div class='span3 muted'>
-		 " .$desc_en. "
-		</div>
-	";
+	$cols = get_post_meta( $post->ID, '_jch_cols', true );
+	if ( $cols == '2' ) {
+	// if 2 columns template
+		$loop_out = "
+			<div class='span3'>
+			 " .$desc_es. "
+			</div>
+			<div class='span3 muted'>
+			 " .$desc_en. "
+			</div>
+		";
+	} else {
+		$loop_out = "
+			<div class='span6'>
+			 " .$desc_es. " / <span class='muted'>" .$desc_en. "</span>
+			</div>
+		";
+	}
 } // end if page
 
 ?>
