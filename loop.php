@@ -12,11 +12,49 @@ if ( is_home() ) {
 
 elseif ( is_single() && get_post_type( $post->ID ) == 'proyecto' ) {
 // if single of proyecto custom post type
-	$loop_out = "
-		<div class='span6'>
-		<p>Todas las imagenes de este proyecto. Vars: image with, image cols, image pos.</p>
-		</div>	
-	";
+	$rows = 17;
+	$count_rows = 0;
+	$loop_out = "";
+	while ( $rows > $count_rows ) {
+		$count_rows++;
+		$row_cols = get_post_meta( $post->ID, '_jch_pr_row'.$count_rows.'_cols', true );
+		if ( $row_cols == 1 ) {
+			$row_img1 =  get_post_meta( $post->ID, '_jch_pr_row'.$count_rows.'_img1', true );
+			$loop_out .= "
+				<div class='span6'>
+				<p>".$row_img1."</p>
+				</div>
+			";
+		} elseif ( $row_cols == 2 ) {
+			$row_img1 =  get_post_meta( $post->ID, '_jch_pr_row'.$count_rows.'_img1', true );
+			$row_img2 =  get_post_meta( $post->ID, '_jch_pr_row'.$count_rows.'_img2', true );
+			$loop_out .= "
+				<div class='span3'>
+				<p>".$row_img1."</p>
+				</div>
+				<div class='span3'>
+				<p>".$row_img2."</p>
+				</div>
+			";
+		} elseif ( $row_cols == 3 ) {
+			$row_img1 =  get_post_meta( $post->ID, '_jch_pr_row'.$count_rows.'_img1', true );
+			$row_img2 =  get_post_meta( $post->ID, '_jch_pr_row'.$count_rows.'_img2', true );
+			$row_img3 =  get_post_meta( $post->ID, '_jch_pr_row'.$count_rows.'_img3', true );
+			$loop_out .= "
+				<div class='span2'>
+				<p>".$row_img1."</p>
+				</div>
+				<div class='span2'>
+				<p>".$row_img2."</p>
+				</div>
+				<div class='span2'>
+				<p>".$row_img3."</p>
+				</div>
+			";
+		} else {
+			// do nothing
+		}
+	} // end while rows
 } // end if single of proyecto custom post type
 
 elseif ( is_archive() && get_post_type( $post->ID ) == 'post' ) {
