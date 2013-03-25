@@ -36,6 +36,20 @@ elseif ( is_archive() && get_post_type( $post->ID ) == 'post' ) {
 	";
 } // end if posts archive
 
+elseif ( is_page() ) {
+// if page
+	$desc_es = get_the_content();
+	$desc_en = get_post_meta( $post->ID, '_jch_pr_desc', true );
+	$loop_out = "
+		<div class='span3'>
+		 " .$desc_es. "
+		</div>
+		<div class='span3 muted'>
+		 " .$desc_en. "
+		</div>
+	";
+} // end if page
+
 ?>
 		<div class="span6 box-padding box-margin">
 		<div class="row">
