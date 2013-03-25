@@ -14,7 +14,10 @@
 
 <?php
 // main page vars
+global $genvars;
 $genvars = array(
+	//'user_mail' => 'jorge@jorgechamorro.es', // main user mail
+	'user_mail' => 'info@montera34.com', // main user mail
 	'blogname' => get_bloginfo('name'), // title
 	'blogdesc' => get_bloginfo( 'description', 'display' ), // description
 	'blogurl' => get_bloginfo('url'), // home url
@@ -73,9 +76,15 @@ wp_head(); ?>
 		<div class="span1">
 			<h1><a href="<?php echo $genvars['blogurl']; ?>"><?php echo $genvars['blogname']; ?></a></h1>
 		</div>
-		<ul class="span6 unstyled box-borderb box-padding">
-			<li class="span1">Graphic Design</li>
-			<li class="span1">Art</li>
-		</ul>
+		<div class="span6 box-borderb box-padding">
+		<div class="row">
+			<div class="span1"><a href="">Diseño gráfico<br />Graphic Design</a></div>
+			<div class="span1"><a href="">Arte<br />Art</a></div>
+			<div class="span1"><a href="">Arte<br />Art</a></div>
+			<div class="span1"><a href="">Arte<br />Art</a></div>
+			<div class="span1"><a href="">Arte<br />Art</a></div>
+			<div class="span1"><a href="">Arte<br />Art</a></div>
+		</div>
+		</div>
 	</div>
 </div>

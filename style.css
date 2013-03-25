@@ -28,3 +28,7 @@ a:hover {
 .box-padding {
 	padding: 7px 0;
 }
+.box-margin {
+	margin-top: 14px;
+	margin-bottom: 14px;
+}
