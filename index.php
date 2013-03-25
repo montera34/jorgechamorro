@@ -18,7 +18,7 @@ if ( $the_query->have_posts() ) {
 	// The Loop
 	while ( $the_query->have_posts() ) : $the_query->the_post();
 		include "margen.php";
-		include "loop.random.php";
+		include "loop.php";
 	endwhile;
 
 	/* Restore original Post Data 
