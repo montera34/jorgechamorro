@@ -76,14 +76,33 @@ wp_head(); ?>
 		<div class="span1">
 			<h1><a href="<?php echo $genvars['blogurl']; ?>"><?php echo $genvars['blogname']; ?></a></h1>
 		</div>
-		<div class="span6 box-borderb box-padding">
+		<div class="span6 box-borderb">
 		<div class="row">
-			<div class="span1"><a href="">Diseño gráfico<br />Graphic Design</a></div>
-			<div class="span1"><a href="">Arte<br />Art</a></div>
-			<div class="span1"><a href="">Arte<br />Art</a></div>
-			<div class="span1"><a href="">Arte<br />Art</a></div>
-			<div class="span1"><a href="">Arte<br />Art</a></div>
-			<div class="span1"><a href="">Arte<br />Art</a></div>
+			<?php
+			// menu build
+			$items = array(
+				array('name_es'=>'Diseño gráfico','name_en'=>'Graphic design','class'=>'design','url'=>''),
+				array('name_es'=>'Arte','name_en'=>'Art','class'=>'art','url'=>''),
+				array('name_es'=>'Docencia','name_en'=>'Teaching','class'=>'docencia','url'=>''),
+				array('name_es'=>'Noticias','name_en'=>'News','class'=>'news','url'=>''),
+				array('name_es'=>'Tienda','name_en'=>'Shop','class'=>'tienda','url'=>''),
+				array('name_es'=>'Información','name_en'=>'About','class'=>'informacion','url'=>''),
+			);
+			if ( get_query_var('tipo') == 'diseno-grafico' || is_single() && has_term("diseno-grafico","tipo") ) { $active = 1; }
+			if ( get_query_var('tipo') == 'arte' || is_single() && has_term("arte","tipo") ) { $active = 2; }
+			if ( is_page( 'docencia') ) { $active = 3; }
+			if ( get_post_type( $post->ID ) == 'post' ) { $active = 4; }
+			if ( is_page( 'tienda') ) { $active = 5; }
+			if ( is_page( 'informacion') ) { $active = 6; }
+			$count = 0;
+			foreach ( $items as $item ) {
+				$count++;
+				if ( $count == $active ) {
+					echo "<div class='span1 box-padding box-borderb ".$item['class']."'><a href='".$item['url']."'>".$item['name_es']."<br /><span class='muted'>".$item['name_en']."</span></a></div>";
+				} else {
+				echo "<div class='span1 box-padding ".$item['class']."'><a href='".$item['url']."'>".$item['name_es']."<br /><span class='muted'>".$item['name_en']."</span></a></div>";
+				}
+			} ?>
 		</div>
 		</div>
 	</div>
