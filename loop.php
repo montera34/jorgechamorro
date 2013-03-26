@@ -24,6 +24,7 @@ elseif ( is_single() && get_post_type( $post->ID ) == 'proyecto' ) {
 	$rows = 17;
 	$count_rows = 0;
 	$loop_out = "";
+	$img_class = "gallery-item";
 	while ( $rows > $count_rows ) {
 		$count_rows++;
 		$row_cols = get_post_meta( $post->ID, '_jch_pr_row'.$count_rows.'_cols', true );
@@ -31,7 +32,7 @@ elseif ( is_single() && get_post_type( $post->ID ) == 'proyecto' ) {
 			$row_img1 =  get_post_meta( $post->ID, '_jch_pr_row'.$count_rows.'_img1', true );
 			$loop_out .= "
 				<div class='span6'>
-				<p>".$row_img1."</p>
+				<img class='".$img_class."' src='".$row_img1."' alt='".$tit_es."' />
 				</div>
 			";
 		} elseif ( $row_cols == 2 ) {
@@ -39,10 +40,10 @@ elseif ( is_single() && get_post_type( $post->ID ) == 'proyecto' ) {
 			$row_img2 =  get_post_meta( $post->ID, '_jch_pr_row'.$count_rows.'_img2', true );
 			$loop_out .= "
 				<div class='span3'>
-				<p>".$row_img1."</p>
+				<img class='".$img_class."' src='".$row_img1."' alt='".$tit_es."' />
 				</div>
 				<div class='span3'>
-				<p>".$row_img2."</p>
+				<img class='".$img_class."' src='".$row_img2."' alt='".$tit_es."' />
 				</div>
 			";
 		} elseif ( $row_cols == 3 ) {
@@ -51,13 +52,13 @@ elseif ( is_single() && get_post_type( $post->ID ) == 'proyecto' ) {
 			$row_img3 =  get_post_meta( $post->ID, '_jch_pr_row'.$count_rows.'_img3', true );
 			$loop_out .= "
 				<div class='span2'>
-				<p>".$row_img1."</p>
+				<img class='".$img_class."' src='".$row_img1."' alt='".$tit_es."' />
 				</div>
 				<div class='span2'>
-				<p>".$row_img2."</p>
+				<img class='".$img_class."' src='".$row_img2."' alt='".$tit_es."' />
 				</div>
 				<div class='span2'>
-				<p>".$row_img3."</p>
+				<img class='".$img_class."' src='".$row_img3."' alt='".$tit_es."' />
 				</div>
 			";
 		} else {

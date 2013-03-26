@@ -21,8 +21,12 @@ if ( is_home() ) {
 elseif ( is_single() && get_post_type( $post->ID ) == 'proyecto' ) {
 // if single of proyecto custom post type
 	$tipos = get_the_terms( $post->ID, "tipo" );
-	$tipo_es = "";
-	$tipo_en = "";
+	foreach ( $tipos as $tipo ) {
+		if ( $tipo->parent == 0 ) {
+			$tipo_es = $tipo->name;
+			$tipo_en = $tipo->description;
+		}
+	}
 	$tit_es = get_the_title();
 	$tit_en = get_post_meta( $post->ID, '_jch_pr_tit', true );
 	$desc_es = get_the_content();
