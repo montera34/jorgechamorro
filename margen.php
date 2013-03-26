@@ -79,8 +79,8 @@ elseif ( is_single() && get_post_type( $post->ID ) == 'proyecto' ) {
 	";
 } // end if single of proyecto custom post type
 
-//elseif ( is_post_type_archive() ) {
-elseif ( is_archive() && get_post_type( $post->ID ) == 'post' ) {
+//elseif ( is_page_template('page.news.php') ) {
+elseif ( get_post_type( $post->ID ) == 'post' ) {
 // if posts archive
 	$tit_es = get_the_title();
 	$tit_en = get_post_meta( $post->ID, '_jch_pr_tit', true );
