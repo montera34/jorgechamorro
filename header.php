@@ -82,12 +82,12 @@ wp_head(); ?>
 			<?php
 			// menu build
 			$items = array(
-				array('name_es'=>'Diseño gráfico','name_en'=>'Graphic design','class'=>'design','url'=>''),
-				array('name_es'=>'Arte','name_en'=>'Art','class'=>'art','url'=>''),
-				array('name_es'=>'Docencia','name_en'=>'Teaching','class'=>'docencia','url'=>''),
-				array('name_es'=>'Noticias','name_en'=>'News','class'=>'news','url'=>''),
-				array('name_es'=>'Tienda','name_en'=>'Shop','class'=>'tienda','url'=>''),
-				array('name_es'=>'Información','name_en'=>'About','class'=>'informacion','url'=>''),
+				array('name_es'=>'Diseño gráfico','name_en'=>'Graphic design','class'=>'design','url'=>$genvars['blogurl'].'/tipo/diseno-grafico'),
+				array('name_es'=>'Arte','name_en'=>'Art','class'=>'art','url'=>$genvars['blogurl'].'/tipo/arte'),
+				array('name_es'=>'Docencia','name_en'=>'Teaching','class'=>'docencia','url'=>$genvars['blogurl'].'/docencia'),
+				array('name_es'=>'Noticias','name_en'=>'News','class'=>'news','url'=>$genvars['blogurl'].'/noticias'),
+				array('name_es'=>'Tienda','name_en'=>'Shop','class'=>'tienda','url'=>$genvars['blogurl'].'/tienda'),
+				array('name_es'=>'Información','name_en'=>'About','class'=>'informacion','url'=>$genvars['blogurl'].'/informacion'),
 			);
 			if ( get_query_var('tipo') == 'diseno-grafico' || is_single() && has_term("diseno-grafico","tipo") ) { $active = 1; }
 			if ( get_query_var('tipo') == 'arte' || is_single() && has_term("arte","tipo") ) { $active = 2; }
