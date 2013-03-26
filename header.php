@@ -20,6 +20,7 @@ $genvars = array(
 	'user_mail' => 'info@montera34.com', // main user mail
 	'blogname' => get_bloginfo('name'), // title
 	'blogdesc' => get_bloginfo( 'description', 'display' ), // description
+	'blogdesc_en' => get_option( 'tagline_en' ), // description english
 	'blogurl' => get_bloginfo('url'), // home url
 	'blogtheme' => get_bloginfo('template_directory'), // theme url
 );

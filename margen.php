@@ -2,7 +2,7 @@
 if ( is_home() ) {
 // if is home page
 	$desc_es = $genvars['blogdesc'];
-	$desc_en = $genvars['blogdesc'];
+	$desc_en = $genvars['blogdesc_en'];
 	$user_mail = $genvars['user_mail'];
 	$user_data = get_user_by('email', $user_mail);
 	$user_phone = $user_data->phone;

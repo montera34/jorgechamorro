@@ -245,3 +245,22 @@ function save_extra_user_profile_fields( $user_id ) {
 	}
 
 } // end save_extra_user_profile_fields function
+
+// add an extra field to General Settings Page in the admin
+$new_general_setting = new new_general_setting();
+
+class new_general_setting {
+	function new_general_setting( ) {
+		add_filter( 'admin_init' , array( &$this , 'register_fields' ) );
+	}
+	function register_fields() {
+		register_setting( 'general', 'tagline_en', 'esc_attr' );
+		// add_settings_field( $id, $title, $callback, $page, $section, $args );
+		add_settings_field('tagl_en', '<label for="tagline_en">'.__('Tagline in english' , 'tagline_en' ).'</label>' , array(&$this, 'fields_html') , 'general' );
+	}
+	function fields_html() {
+		$value = get_option( 'tagline_en', '' );
+		echo '<input type="text" id="tagline_en" name="tagline_en" value="' . $value . '" />';
+	}
+}
+?>
