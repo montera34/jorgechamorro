@@ -188,6 +188,57 @@ function be_sample_metaboxes( $meta_boxes ) {//metaboxes common variables to all
 			),
 		);	
 	} // end while rows
+	// custom meta boxes for gallery in pages
+	$rows = 1; // maximun number of rows
+	$count_rows = 0;
+	while ( $rows > $count_rows ) {
+		$count_rows++;
+		$meta_boxes[] = array(
+			'id' => 'pag_row_'.$count_rows,
+			'title' => 'Galería de imagenes: Columna '.$count_rows,
+			'pages' => array('page'), // post type
+			'context' => 'normal',
+			'priority' => 'high',
+			'show_names' => true, // Show field names on the left
+			'fields' => array(
+				array(
+					'name' => 'Número de columnas',
+					'desc' => '',
+					'id' => $prefix . 'pag_row'.$count_rows.'_cols',
+					'type' => 'radio_inline',
+					'options' => array(
+						array('name' => '1', 'value' => '1'),
+						array('name' => '2', 'value' => '2'),
+						array('name' => '3', 'value' => '3'),
+					)
+				),
+				array(
+					'name' => 'Imagen 1',
+					'desc' => '',
+					'id' => $prefix . 'pag_row'.$count_rows.'_img1',
+					'type' => 'file',
+					'save_id' => true, // save ID using true
+					'allow' => array( 'url', 'attachment' ) // limit to just attachments with array( 'attachment' )
+				),
+				array(
+					'name' => 'Imagen 2',
+					'desc' => '',
+					'id' => $prefix . 'pag_row'.$count_rows.'_img2',
+					'type' => 'file',
+					'save_id' => true, // save ID using true
+					'allow' => array( 'url', 'attachment' ) // limit to just attachments with array( 'attachment' )
+				),
+				array(
+					'name' => 'Imagen 3',
+					'desc' => '',
+					'id' => $prefix . 'pag_row'.$count_rows.'_img3',
+					'type' => 'file',
+					'save_id' => true, // save ID using true
+					'allow' => array( 'url', 'attachment' ) // limit to just attachments with array( 'attachment' )
+				),
+			),
+		);	
+	} // end while rows
 	return $meta_boxes;
 }
 add_filter( 'cmb_meta_boxes', 'be_sample_metaboxes' );

@@ -25,52 +25,16 @@ elseif ( is_single() && get_post_type( $post->ID ) == 'proyecto' ) {
 	$count_rows = 0;
 	$loop_out = "";
 	$img_class = "gallery-item";
-	while ( $rows > $count_rows ) {
-		$count_rows++;
-		$row_cols = get_post_meta( $post->ID, '_jch_pr_row'.$count_rows.'_cols', true );
-		if ( $row_cols == 1 ) {
-			$row_img1 =  get_post_meta( $post->ID, '_jch_pr_row'.$count_rows.'_img1', true );
-			$loop_out .= "
-				<div class='span6'>
-				<img class='".$img_class."' src='".$row_img1."' alt='".$tit_es."' />
-				</div>
-			";
-		} elseif ( $row_cols == 2 ) {
-			$row_img1 =  get_post_meta( $post->ID, '_jch_pr_row'.$count_rows.'_img1', true );
-			$row_img2 =  get_post_meta( $post->ID, '_jch_pr_row'.$count_rows.'_img2', true );
-			$loop_out .= "
-				<div class='span3'>
-				<img class='".$img_class."' src='".$row_img1."' alt='".$tit_es."' />
-				</div>
-				<div class='span3'>
-				<img class='".$img_class."' src='".$row_img2."' alt='".$tit_es."' />
-				</div>
-			";
-		} elseif ( $row_cols == 3 ) {
-			$row_img1 =  get_post_meta( $post->ID, '_jch_pr_row'.$count_rows.'_img1', true );
-			$row_img2 =  get_post_meta( $post->ID, '_jch_pr_row'.$count_rows.'_img2', true );
-			$row_img3 =  get_post_meta( $post->ID, '_jch_pr_row'.$count_rows.'_img3', true );
-			$loop_out .= "
-				<div class='span2'>
-				<img class='".$img_class."' src='".$row_img1."' alt='".$tit_es."' />
-				</div>
-				<div class='span2'>
-				<img class='".$img_class."' src='".$row_img2."' alt='".$tit_es."' />
-				</div>
-				<div class='span2'>
-				<img class='".$img_class."' src='".$row_img3."' alt='".$tit_es."' />
-				</div>
-			";
-		} else {
-			// do nothing
-		}
-	} // end while rows
+	$prefix = "pr";
+	include "loop.gallery.php";
 } // end if single of proyecto custom post type
 
 elseif ( is_archive() && get_post_type( $post->ID ) == 'post' ) {
 // if posts archive
 	$desc_es = get_the_content();
+	$desc_es = apply_filters( 'the_content', $desc_es );
 	$desc_en = get_post_meta( $post->ID, '_jch_pr_desc', true );
+	$desc_en = apply_filters( 'the_content', $desc_en );
 	$loop_out = "
 		<div class='span2'>
 		<p>Here the featured image of this new.</p>
@@ -87,11 +51,20 @@ elseif ( is_archive() && get_post_type( $post->ID ) == 'post' ) {
 elseif ( is_page() ) {
 // if page
 	$desc_es = get_the_content();
+	$desc_es = apply_filters( 'the_content', $desc_es );
 	$desc_en = get_post_meta( $post->ID, '_jch_pr_desc', true );
+	$desc_en = apply_filters( 'the_content', $desc_en );
 	$cols = get_post_meta( $post->ID, '_jch_cols', true );
+	// check if this page has images
+	$rows = 1;
+	$count_rows = 0;
+	$loop_out = "";
+	$img_class = "gallery-item";
+	$prefix = "pag";
+	include "loop.gallery.php";
 	if ( $cols == '2' ) {
 	// if 2 columns template
-		$loop_out = "
+		$loop_out .= "
 			<div class='span3'>
 			 " .$desc_es. "
 			</div>
@@ -100,9 +73,9 @@ elseif ( is_page() ) {
 			</div>
 		";
 	} else {
-		$loop_out = "
+		$loop_out .= "
 			<div class='span6'>
-			 " .$desc_es. " / <span class='muted'>" .$desc_en. "</span>
+			 " .$desc_es. "
 			</div>
 		";
 	}
