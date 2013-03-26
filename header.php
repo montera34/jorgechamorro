@@ -90,11 +90,11 @@ wp_head(); ?>
 				array('name_es'=>'Información','name_en'=>'About','class'=>'informacion','url'=>$genvars['blogurl'].'/informacion'),
 			);
 			if ( get_query_var('tipo') == 'diseno-grafico' || is_single() && has_term("diseno-grafico","tipo") ) { $active = 1; }
-			if ( get_query_var('tipo') == 'arte' || is_single() && has_term("arte","tipo") ) { $active = 2; }
-			if ( is_page( 'docencia') ) { $active = 3; }
-			if ( get_post_type( $post->ID ) == 'post' && is_archive() || get_post_type( $post->ID ) == 'post' && is_single() ) { $active = 4; }
-			if ( is_page( 'tienda') ) { $active = 5; }
-			if ( is_page( 'informacion') ) { $active = 6; }
+			elseif ( get_query_var('tipo') == 'arte' || is_single() && has_term("arte","tipo") ) { $active = 2; }
+			elseif ( is_page('docencia') ) { $active = 3; }
+			elseif ( get_post_type( $post->ID ) == 'post' && is_archive() || get_post_type( $post->ID ) == 'post' && is_single() ) { $active = 4; }
+			elseif ( is_page('tienda') ) { $active = 5; }
+			elseif ( is_page('informacion') ) { $active = 6; }
 			else { $active = 0; }
 			$count = 0;
 			foreach ( $items as $item ) {
@@ -102,7 +102,7 @@ wp_head(); ?>
 				if ( $count == $active ) {
 					echo "<div class='span1 box-padding box-borderb ".$item['class']."'><a href='".$item['url']."'>".$item['name_es']."<br /><span class='muted'>".$item['name_en']."</span></a></div>";
 				} else {
-				echo "<div class='span1 box-padding ".$item['class']."'><a href='".$item['url']."'>".$item['name_es']."<br /><span class='muted'>".$item['name_en']."</span></a></div>";
+				echo "<div class='span1 box-padding box-borderb-w ".$item['class']."'><a href='".$item['url']."'>".$item['name_es']."<br /><span class='muted'>".$item['name_en']."</span></a></div>";
 				}
 			} ?>
 		</div>

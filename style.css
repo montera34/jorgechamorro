@@ -25,6 +25,9 @@ a:hover {
 .box-borderb {
 	border-bottom: 1px solid #333;
 }
+.box-borderb-w {
+	border-bottom: 1px solid transparent;
+}
 .box-padding {
 	padding: 7px 0;
 }
