@@ -11,9 +11,13 @@ if ( have_posts() ) {
 
 	// The Loop
 	while ( have_posts() ) : the_post();
-		include "margen.php";
-		include "loop.php";
-	endwhile;
+		include "margen.php"; ?>
+				<div class="span6 box-padding box-margin">
+					<div class="row">
+						<?php include "loop.php"; echo $loop_out; ?>
+					</div>
+				</div>
+	<?php endwhile;
 
 	/* Restore original Post Data 
 	 * NB: Because we are using new WP_Query we aren't stomping on the 

@@ -13,7 +13,6 @@ if ( have_posts() ) {
 
 	// The Loop
 	while ( have_posts() ) : the_post();
-
 		include "loop.php";
 	endwhile;
 
@@ -25,33 +24,16 @@ if ( have_posts() ) {
 
 } else {
 // if no posts in this loop
-	echo "
-	<div class='span6 box-padding box-margin'>
-	<div class='row'>
+	$loop_out[] = "
 		<div class='span6'>
-		<p>Aún no hay proyectos en este mosaico. ¡Añádelos!</p>
+			<p>Aún no hay proyectos en este mosaico. ¡Añádelos!</p>
 		</div>
-	</div>
-	</div>
-";
+	";
 } ?>
-	</div>
-</div>
-
-		<div class="span1 box-margin">
-			<h2><?php echo "Arte<br />Art"; ?></h2>
-		</div>
-		<div class="span6 box-padding box-margin">
-		<div class="row">
-			<div class="span1"><img src="<?php echo $genvars['blogtheme']; ?>/images/m-15m.jpg" />Titulo<br />Title</div>
-			<div class="span1"><img src="<?php echo $genvars['blogtheme']; ?>/images/m-alas4.jpg" />Titulo<br />Title</div>
-			<div class="span1"><img src="<?php echo $genvars['blogtheme']; ?>/images/m-amaralys.jpg" />Titulo<br />Title</div>
-			<div class="span1"><img src="<?php echo $genvars['blogtheme']; ?>/images/m-antropologias.jpg" />Titulo<br />Title</div>
-			<div class="span1"><img src="<?php echo $genvars['blogtheme']; ?>/images/m-carnicero.jpg" />Titulo<br />Title</div>
-			<div class="span1"><img src="<?php echo $genvars['blogtheme']; ?>/images/m-arteypsicologia.jpg" />Titulo<br />Title</div>
-			<div class="span1"><img src="<?php echo $genvars['blogtheme']; ?>/images/m-cartel-trozos.jpg" />Titulo<br />Title</div>
-			<div class="span1"><img src="<?php echo $genvars['blogtheme']; ?>/images/m-chelis.jpg" />Titulo<br />Title</div>
-		</div>
+		<div class='span6 box-padding box-margin'>
+			<div class='row'>
+				<?php foreach ( $loop_out as $loop ) { echo $loop; } ?>
+			</div>
 		</div>
 	</div>
 </div>

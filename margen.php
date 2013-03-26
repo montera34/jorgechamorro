@@ -18,7 +18,8 @@ if ( is_home() ) {
 	";
 } // end if is home page
 
-elseif ( get_query_var('tipo') != '' && !is_single() ) {
+//elseif ( get_query_var('tipo') != '' && !is_single() ) {
+elseif ( is_tax('tipo') ) {
 // if disegno archivo
 	$margen_out = "";
 	$current_term = get_query_var('tipo');

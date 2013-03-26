@@ -28,11 +28,14 @@ if ( $the_query->have_posts() ) {
 
 	// The Loop
 	while ( $the_query->have_posts() ) : $the_query->the_post(); ?>
-
 		<div class="container box-borderb">
 			<div class="row">
-				<?php include "margen.php";
-				include "loop.php"; ?>
+				<?php include "margen.php"; ?>
+				<div class="span6 box-padding box-margin">
+					<div class="row">
+						<?php include "loop.php"; echo $loop_out; ?>
+					</div>
+				</div>
 			</div>
 		</div>
 	<?php endwhile;

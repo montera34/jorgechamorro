@@ -19,6 +19,18 @@ if ( is_home() ) {
 	}
 } // end if is home page
 
+//elseif ( is_post_type_archive('proyecto') ) {
+elseif ( is_tax('tipo') ) {
+// if any proyecto archive
+	$mosac_img = get_post_meta( $post->ID, '_jch_pr_mosac', true );
+	$mosac_tit = get_the_title();
+	$mosac_tit_en = get_post_meta( $post->ID, '_jch_pr_tit', true );
+	$mosac_link = get_permalink();
+	$loop_out[] = "	
+		<div class='span1'><img src='" .$mosac_img. "' alt='" .$mosac_tit. "' /><a href='" .$mosac_link. "' title='" .$mosac_tit. "'>" .$mosac_tit. "<br />" .$mosac_tit_en. "</a></div>
+	";
+} // end if any proyecto archive
+
 elseif ( is_single() && get_post_type( $post->ID ) == 'proyecto' ) {
 // if single of proyecto custom post type
 	$rows = 17;
@@ -80,11 +92,4 @@ elseif ( is_page() ) {
 		";
 	}
 } // end if page
-
 ?>
-		<div class="span6 box-padding box-margin">
-		<div class="row">
-			<?php echo $loop_out; ?>
-		</div>
-		</div>
-
