@@ -1,13 +1,22 @@
 <?php
 if ( is_home() ) {
 // if is home page
-	// random image
-
-	$loop_out = "
+	// random proyecto: outputting featured image
+	if ( has_post_thumbnail() ) {
+		$featured_img = get_the_post_thumbnail($post->ID,'full');
+		$loop_out = "
 		<div class='span6'>
-		<p>Una imagen aleatoria de entre los proyectos. Cual de todas las de un proyecto?</p>
+			".$featured_img."
 		</div>
-	";
+		";
+	} else {
+		$loop_out = "
+		<div class='span6'>
+		<p>La portada está programada para que aparezca una imagen de un proyecto, elegido aleatoriamente de entre los proyectos que hayan sido seleccionados para aparecer en la portada. Aún no hay ningún proyecto que haya sido seleccionado para aparecer en portada.</p>
+		<p>Para hacer aparecer un proyecto en portada basta ir a la página del proyecto en el administrador de WordPress y añadir una imagen destacada mediante la caja Featured Image.</p>
+		</div>
+		";
+	}
 } // end if is home page
 
 elseif ( is_single() && get_post_type( $post->ID ) == 'proyecto' ) {

@@ -26,7 +26,7 @@ function create_post_type() {
 		//'menu_icon' => get_template_directory_uri() . '/images/icon-post.type-integrantes.png',
 		'hierarchical' => false, // if true this post type will be as pages
 		'query_var' => true,
-		'supports' => array('title', 'editor','author','trackbacks','comments' ),
+		'supports' => array('title', 'editor','author','trackbacks','comments','thumbnail' ),
 		'rewrite' => array('slug'=>'proyecto','with_front'=>false),
 		'can_export' => true,
 		'_builtin' => false,
@@ -200,6 +200,6 @@ function be_initialize_cmb_meta_boxes() {
 }
 
 // Adding featured image to the custom post types
-add_theme_support( 'post-thumbnails', array( 'post') );
+add_theme_support( 'post-thumbnails', array( 'post','proyecto') );
 
 ?>

@@ -4,6 +4,8 @@
 	<div class="row">
 
 <?php
+		include "margen.php";
+
 // random loop of proyectos custom post type
 // output: 1 proyecto
 // The Query
@@ -17,7 +19,6 @@ if ( $the_query->have_posts() ) {
 
 	// The Loop
 	while ( $the_query->have_posts() ) : $the_query->the_post();
-		include "margen.php";
 		include "loop.php";
 	endwhile;
 
@@ -29,7 +30,12 @@ if ( $the_query->have_posts() ) {
 
 } else {
 // if no posts in this loop
-
+	echo "
+		<div class='span6'>
+		<p>La portada está programada para que aparezca una imagen de un proyecto, elegido aleatoriamente de entre los proyectos que hayan sido seleccionados para aparecer en la portada. Aún no hay ningún proyecto que haya sido seleccionado para aparecer en portada.</p>
+		<p>Para hacer aparecer un proyecto en portada basta ir a la página del proyecto en el administrador de WordPress y añadir una imagen destacada mediante la caja Featured Image.</p>
+		</div>
+";
 } ?>
 
 	</div>
