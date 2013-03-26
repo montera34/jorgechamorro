@@ -5,8 +5,7 @@ if ( is_home() ) {
 	$desc_en = $genvars['blogdesc'];
 	$user_mail = $genvars['user_mail'];
 	$user_data = get_user_by('email', $user_mail);
-	//$user_phone = $user_data->phone;
-	$user_phone = "+34 91 521 75 26";
+	$user_phone = $user_data->phone;
 
 	$margen_out = "
 		<h2>" .$desc_es. "<br />
