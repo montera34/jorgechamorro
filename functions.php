@@ -250,7 +250,7 @@ function save_extra_user_profile_fields( $user_id ) {
 $new_general_setting = new new_general_setting();
 
 class new_general_setting {
-	function new_general_setting( ) {
+	function new_general_setting() {
 		add_filter( 'admin_init' , array( &$this , 'register_fields' ) );
 	}
 	function register_fields() {
@@ -263,4 +263,62 @@ class new_general_setting {
 		echo '<input type="text" id="tagline_en" name="tagline_en" value="' . $value . '" />';
 	}
 }
+
+// adding necessary terms and pages to the website when the theme is selected
+//add_action( 'after_setup_theme', 'add_necessary_terms_and_pages' );
+//function add_necessary_terms_and_pages() {
+//	// terms
+//	$taxo = "tipo";
+//	$terms_list = array(
+//		array(
+//			'name' => 'Arte',
+//			'description' => 'Art'
+//		),
+//		array(
+//			'name' => 'Diseño gráfico',
+//			'description' => 'Graphic design'
+//		)
+//	);
+//	foreach ( $terms_list as $tipo ) {
+//		if ( term_exists($tipo->name,$taxo) == 0 ) { // if term does not exist, create it
+//			$args = array(
+//				'description' => $tipo->description
+//			);
+//			wp_insert_term( $tipo->name, $taxo, $args );
+//		}
+//	} // end loop terms
+//
+//	// pages
+//	$pages_list = array(
+//		array(
+//			'name' => 'Docencia',
+//			'name_en' => 'Teaching',
+//			'slug' => 'docencia'
+//		),
+//		array(
+//			'name' => 'Tienda',
+//			'name_en' => 'Shop',
+//			'slug' => 'tienda'
+//		),
+//		array(
+//			'name' => 'Información',
+//			'name_en' => 'About',
+//			'slug' => 'informacion'
+//		)
+//	);
+//	foreach ( $pages_list as $ipag ) {
+//		if ( get_page_by_title($ipag->name) == NULL ) { // if page already exists, do nothing
+//			$ipag_id = wp_insert_post(array(
+//				'post_type' => 'page', // "page" para páginas, "libro" para el custom post type libro...
+//				'post_status' => 'publish', // "publish" para publicados, "draft" para borrador, "future" para programarlo...
+//				'post_author' => '1', // el ID del autor, 1 para admin
+//				'post_title' => $ipag->name,
+//				'post_name' => $ipag->slug,
+//			)); // La funcion insert devuelve la id del post 
+//			$post_meta_key = "_jch_pr_tit";
+//			$post_meta_value = $ipag->name_en;
+//			add_post_meta($ipag_id, $post_meta_key, $post_meta_value, true);
+//		}
+//	} // end loop pages
+//} // end add_necessary_terms_and_pages function
 ?>
