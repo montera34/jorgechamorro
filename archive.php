@@ -1,22 +1,21 @@
 <?php get_header(); ?>
 
+<div class="container">
+	<div class="row">
 
 <?php
+		include "margen.php";
+
 // archive.php loop for posts
 // output: all posts with pagination
 // The Query
 if ( have_posts() ) {
 
 	// The Loop
-	while ( have_posts() ) : the_post(); ?>
-<div class="container box-borderb">
-	<div class="row">
+	while ( have_posts() ) : the_post();
 
-		<?php include "margen.php";
-		include "loop.php"; ?>
-	</div>
-</div>
-	<?php endwhile;
+		include "loop.php";
+	endwhile;
 
 	/* Restore original Post Data 
 	 * NB: Because we are using new WP_Query we aren't stomping on the 
@@ -26,8 +25,18 @@ if ( have_posts() ) {
 
 } else {
 // if no posts in this loop
-
+	echo "
+	<div class='span6 box-padding box-margin'>
+	<div class='row'>
+		<div class='span6'>
+		<p>Aún no hay proyectos en este mosaico. ¡Añádelos!</p>
+		</div>
+	</div>
+	</div>
+";
 } ?>
+	</div>
+</div>
 
 		<div class="span1 box-margin">
 			<h2><?php echo "Arte<br />Art"; ?></h2>

@@ -18,6 +18,36 @@ if ( is_home() ) {
 	";
 } // end if is home page
 
+elseif ( get_query_var('tipo') != '' && !is_single() ) {
+// if disegno archivo
+	$margen_out = "";
+	$current_term = get_query_var('tipo');
+	$current_term_data = get_term_by( 'slug', $current_term, 'tipo' );
+	$current_term_id = $current_term_data->term_id;
+	$current_term_children = get_terms( "tipo",array('parent'=>$current_term_id,'hide_empty'=>0) );
+	
+	if ( count($current_term_children) == 0 ) { // if current term has no children
+		$tipo_es = $current_term_data->name;
+		$tipo_en = $current_term_data->description;
+		$margen_out .= "
+			<h2>" .$tipo_es. "<br />
+				<span class='muted'>" .$tipo_en. "</span>
+			</h2>
+		";
+	} else { // if current term has children
+		foreach ( $current_term_children as $child ) {
+			$tipo_es = $child->name;
+			$tipo_en = $child->description;
+			$term_link = get_term_link( $tipo_es, 'tipo' );
+			$margen_out .= "
+				<h2><a href='" .$term_link. "'>" .$tipo_es. "<br />
+					<span class='muted'>" .$tipo_en. "</span></a>
+				</h2>
+			";
+		}
+	} // end if current term has children
+} // end if disegno archive
+
 elseif ( is_single() && get_post_type( $post->ID ) == 'proyecto' ) {
 // if single of proyecto custom post type
 	$tipos = get_the_terms( $post->ID, "tipo" );
