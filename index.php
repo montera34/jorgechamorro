@@ -31,10 +31,14 @@ if ( $the_query->have_posts() ) {
 } else {
 // if no posts in this loop
 	echo "
+	<div class='span6 box-padding box-margin'>
+	<div class='row'>
 		<div class='span6'>
 		<p>La portada está programada para que aparezca una imagen de un proyecto, elegido aleatoriamente de entre los proyectos que hayan sido seleccionados para aparecer en la portada. Aún no hay ningún proyecto que haya sido seleccionado para aparecer en portada.</p>
 		<p>Para hacer aparecer un proyecto en portada basta ir a la página del proyecto en el administrador de WordPress y añadir una imagen destacada mediante la caja Featured Image.</p>
 		</div>
+	</div>
+	</div>
 ";
 } ?>
 
