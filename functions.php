@@ -57,7 +57,7 @@ function be_sample_metaboxes( $meta_boxes ) {//metaboxes common variables to all
 	$prefix = '_jch_'; // Prefix for all fields
 	$meta_boxes[] = array(
 		'id' => 'english',
-		'title' => 'Contenido en inglés',
+		'title' => 'Contenido en inglés y título corto en español',
 		'pages' => array('proyecto','page','post'), // post type
 		'context' => 'normal',
 		'priority' => 'high',
@@ -67,6 +67,18 @@ function be_sample_metaboxes( $meta_boxes ) {//metaboxes common variables to all
 				'name' => 'Title',
 				'desc' => '',
 				'id' => $prefix . 'pr_tit',
+				'type' => 'text'
+			),
+			array(
+				'name' => 'Short Title',
+				'desc' => '',
+				'id' => $prefix . 'pr_tit_short_en',
+				'type' => 'text'
+			),
+			array(
+				'name' => 'Título corto',
+				'desc' => '',
+				'id' => $prefix . 'pr_tit_short',
 				'type' => 'text'
 			),
 			array(
@@ -144,7 +156,7 @@ function be_sample_metaboxes( $meta_boxes ) {//metaboxes common variables to all
 		$count_rows++;
 		$meta_boxes[] = array(
 			'id' => 'row_'.$count_rows,
-			'title' => 'Galería de imagenes: Columna '.$count_rows,
+			'title' => 'Galería de imagenes: Fila '.$count_rows,
 			'pages' => array('proyecto'), // post type
 			'context' => 'normal',
 			'priority' => 'high',
