@@ -195,7 +195,7 @@ function be_sample_metaboxes( $meta_boxes ) {//metaboxes common variables to all
 		$count_rows++;
 		$meta_boxes[] = array(
 			'id' => 'pag_row_'.$count_rows,
-			'title' => 'Galería de imagenes: Columna '.$count_rows,
+			'title' => 'Galería de imagenes: Fila '.$count_rows,
 			'pages' => array('page'), // post type
 			'context' => 'normal',
 			'priority' => 'high',
