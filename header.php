@@ -92,7 +92,7 @@ wp_head(); ?>
 			if ( get_query_var('tipo') == 'diseno-grafico' || is_single() && has_term("diseno-grafico","tipo") ) { $active = 1; }
 			elseif ( get_query_var('tipo') == 'arte' || is_single() && has_term("arte","tipo") ) { $active = 2; }
 			elseif ( is_page('docencia') ) { $active = 3; }
-			elseif ( get_post_type( $post->ID ) == 'post' && is_archive() || get_post_type( $post->ID ) == 'post' && is_single() ) { $active = 4; }
+			elseif ( is_page_template('page.news.php') || get_post_type( $post->ID ) == 'post' && is_single() ) { $active = 4; }
 			elseif ( is_page('tienda') ) { $active = 5; }
 			elseif ( is_page('informacion') ) { $active = 6; }
 			else { $active = 0; }

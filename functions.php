@@ -372,4 +372,11 @@ class new_general_setting {
 //		}
 //	} // end loop pages
 //} // end add_necessary_terms_and_pages function
+
+add_filter( 'pre_get_posts', 'jorgech_all_posts_in_tipo_tax_archive' );
+function jorgech_all_posts_in_tipo_tax_archive( $query ) {
+    if ( is_tax( 'tipo' ) )
+        $query->set( 'posts_per_page', -1 );
+    return $query;
+}
 ?>
