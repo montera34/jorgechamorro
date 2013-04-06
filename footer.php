@@ -22,7 +22,7 @@ if ( is_single() ) {
 		<div class="span6 offset1">
 			<h3>Compartir<br /><span class="muted">Share</span></h3>
 			<ul class="inline">
-				<li><a href="http://facebook.com/sharer.php?u=<?php echo $perma ?>" target="_blank">Facebook</a></li>
+				<li style="padding-left: 0;"><a href="http://facebook.com/sharer.php?u=<?php echo $perma ?>" target="_blank">Facebook</a></li>
 				<li><a href="http://twitter.com/home?status=<?php echo $tit. " " .$perma. " by @lacascaraamarga"; ?>" target="_blank">Twitter</a></li>
 				<li><a href="http://www.tumblr.com/share/link?url=<?php echo $perma. "&name=" .$tit. "&description=" .$desc; ?>" target="_blank">Tumblr</a></li>
 				<li><a href="http://pinterest.com/pin/create/button/?url=<?php echo $perma. "&media=" .$img. "&description=" .$desc; ?>">Pinterest</a></li>

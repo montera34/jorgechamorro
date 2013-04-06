@@ -29,10 +29,10 @@ elseif ( is_tax('tipo') ) {
 	$mosac_tit_short_en = get_post_meta( $post->ID, '_jch_pr_tit_short_en', true );
 	if ( $mosac_tit_short != '' ) { $mosac_tit = $mosac_tit_short; }
 	if ( $mosac_tit_short_en != '' ) { $mosac_tit_en = $mosac_tit_short_en; }
-	if ( $mosac_tit_en != '' ) { $mosac_tit_en = "<br />" .$mosac_tit_en; }
+	if ( $mosac_tit_en != '' ) { $mosac_tit_en = "<br /><span class='muted'>" .$mosac_tit_en. "</span>"; }
 	$mosac_link = get_permalink();
 	$loop_out[] = "	
-		<div class='span1'><img src='" .$mosac_img. "' alt='" .$mosac_tit. "' /><a href='" .$mosac_link. "' title='" .$mosac_tit. "'>" .$mosac_tit . $mosac_tit_en. "</a></div>
+		<div class='span1'><a href='" .$mosac_link. "' title='" .$mosac_tit. "'><img src='" .$mosac_img. "' alt='" .$mosac_tit. "' />" .$mosac_tit . $mosac_tit_en. "</a></div>
 	";
 } // end if any proyecto archive
 
