@@ -38,3 +38,17 @@ a:hover {
 .gallery-item {
 	margin-bottom: 7px;
 }
+
+/* header navbar */
+#pre {
+	padding-top: 14px;
+}
+#pre,
+#pre .navbar-inner {
+	background-color: white;
+	border: none;
+	background-image: none;
+	box-shadow: none;
+	-webkit-box-shadow: none;
+	-moz-box-shadow: none;
+}

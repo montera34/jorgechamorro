@@ -25,12 +25,12 @@ if ( have_posts() ) {
 } else {
 // if no posts in this loop
 	$loop_out[] = "
-		<div class='span6'>
+		<div class='span6 offset1'>
 			<p>Aún no hay proyectos en este mosaico. ¡Añádelos!</p>
 		</div>
 	";
 } ?>
-		<div class='span6 box-padding box-margin'>
+		<div class='span6 offset1 box-padding box-margin'>
 			<div class='row'>
 				<?php foreach ( $loop_out as $loop ) { echo $loop; } ?>
 			</div>

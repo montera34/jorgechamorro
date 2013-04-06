@@ -109,10 +109,13 @@ elseif ( is_page() ) {
 		</h2>
 	";
 } // end if single of proyecto custom post type
-
 ?>
 
+<?php if ( is_front_page() || is_tax('tipo') ) { ?>
+	<div class="span1 box-margin affix">
+<?php } else { ?>
 	<div class="span1 box-margin">
+<?php } ?>
 		<?php echo $margen_out; ?>
 	</div>
 

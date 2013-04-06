@@ -72,6 +72,8 @@ wp_head(); ?>
 
 <body>
 
+<div id="pre" class="navbar navbar-fixed-top">
+<div class="navbar-inner">
 <div class="container">
 	<div class="row">
 		<div class="span1">
@@ -108,4 +110,6 @@ wp_head(); ?>
 		</div>
 		</div>
 	</div>
-</div>
+</div><!-- .container-->
+</div><!-- .navbar-inner -->
+</div><!-- .navbar -->
