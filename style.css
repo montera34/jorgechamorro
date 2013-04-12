@@ -71,4 +71,15 @@ a:hover {
 	box-shadow: none;
 	-webkit-box-shadow: none;
 	-moz-box-shadow: none;
+	margin-bottom: 22px;
+}
+
+/* margen */
+#margen p {
+	margin: 7px 0;
+}
+
+/* footer social */
+#epi {
+	margin-top: -21px;
 }

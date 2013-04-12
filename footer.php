@@ -17,7 +17,7 @@ if ( is_single() ) {
 	//$perma = urlencode("http://voragine.net");
 	$img = "";
 ?>
-<div class="container">
+<div id="epi" class="container">
 	<div class="row">
 		<div class="span6 offset1">
 			<h3>Compartir<br /><span class="muted">Share</span></h3>

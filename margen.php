@@ -112,9 +112,9 @@ elseif ( is_page() ) {
 ?>
 
 <?php if ( is_front_page() || is_tax('tipo') || is_single() ) { ?>
-	<div class="span1 box-margin affix">
+	<div id= "margen" class="span1 box-margin affix">
 <?php } else { ?>
-	<div class="span1 box-margin">
+	<div id= "margen" class="span1 box-margin">
 <?php } ?>
 		<?php echo $margen_out; ?>
 	</div>
