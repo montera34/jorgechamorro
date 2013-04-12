@@ -12,7 +12,7 @@ if ( have_posts() ) {
 	// The Loop
 	while ( have_posts() ) : the_post();
 		include "margen.php"; ?>
-				<div class="span6 box-padding box-margin">
+				<div class="span6 offset1 box-padding box-margin">
 					<div class="row">
 						<?php include "loop.php"; echo $loop_out; ?>
 					</div>

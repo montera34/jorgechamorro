@@ -102,9 +102,9 @@ wp_head(); ?>
 			foreach ( $items as $item ) {
 				$count++;
 				if ( $count == $active ) {
-					echo "<div class='span1 box-padding box-borderb ".$item['class']."'><a href='".$item['url']."'>".$item['name_es']."<br /><span class='muted'>".$item['name_en']."</span></a></div>";
+					echo "<div class='span1 box-padding current-borderb ".$item['class']."'><a href='".$item['url']."'>".$item['name_es']."<br /><span class='muted'>".$item['name_en']."</span></a></div>";
 				} else {
-				echo "<div class='span1 box-padding box-borderb-w ".$item['class']."'><a href='".$item['url']."'>".$item['name_es']."<br /><span class='muted'>".$item['name_en']."</span></a></div>";
+				echo "<div class='span1 box-padding current-borderb-w ".$item['class']."'><a href='".$item['url']."'>".$item['name_es']."<br /><span class='muted'>".$item['name_en']."</span></a></div>";
 				}
 			} ?>
 		</div>

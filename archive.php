@@ -31,9 +31,15 @@ if ( have_posts() ) {
 	";
 } ?>
 		<div class='span6 offset1 box-padding box-margin'>
-			<div class='row'>
-				<?php foreach ( $loop_out as $loop ) { echo $loop; } ?>
-			</div>
+			<?php
+			$count = 0;
+			foreach ( $loop_out as $loop ) {
+				$count++;
+				if ( $count == 1 ) { echo "<div class='row'>"; }
+				echo $loop;
+				if ( $count == 6 ) { echo "</div>"; $count = 0; }
+			}
+			if ( $count != 0 ) { echo "</div>"; } ?>
 		</div>
 	</div>
 </div>

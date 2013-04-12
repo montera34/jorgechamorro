@@ -32,7 +32,7 @@ elseif ( is_tax('tipo') ) {
 	if ( $mosac_tit_en != '' ) { $mosac_tit_en = "<br /><span class='muted'>" .$mosac_tit_en. "</span>"; }
 	$mosac_link = get_permalink();
 	$loop_out[] = "	
-		<div class='span1'><a href='" .$mosac_link. "' title='" .$mosac_tit. "'><img src='" .$mosac_img. "' alt='" .$mosac_tit. "' />" .$mosac_tit . $mosac_tit_en. "</a></div>
+		<div class='span1 mosac-item'><a href='" .$mosac_link. "' title='" .$mosac_tit. "'><img src='" .$mosac_img. "' alt='" .$mosac_tit. "' /><div clas='mosac-tit'>" .$mosac_tit . $mosac_tit_en. "</div></a></div>
 	";
 } // end if any proyecto archive
 
