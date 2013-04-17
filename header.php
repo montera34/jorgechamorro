@@ -17,7 +17,7 @@
 global $genvars;
 $genvars = array(
 	//'user_mail' => 'jorge@jorgechamorro.es', // main user mail
-	'user_mail' => 'info@montera34.com', // main user mail
+	'user_mail' => 'jorge@jorgechamorro.es', // main user mail
 	'blogname' => get_bloginfo('name'), // title
 	'blogdesc' => get_bloginfo( 'description', 'display' ), // description
 	'blogdesc_en' => get_option( 'tagline_en' ), // description english
@@ -77,7 +77,7 @@ wp_head(); ?>
 <div class="container">
 	<div class="row">
 		<div class="span1">
-			<h1><a href="<?php echo $genvars['blogurl']; ?>"><?php echo $genvars['blogname']; ?></a></h1>
+			<h1 class="box-padding"><a href="<?php echo $genvars['blogurl']; ?>"><?php echo $genvars['blogname']; ?></a></h1>
 		</div>
 		<div class="span6 box-borderb">
 		<div class="row">

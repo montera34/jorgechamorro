@@ -28,13 +28,13 @@ elseif ( is_tax('tipo') ) {
 	$current_term_children = get_terms( "tipo",array('parent'=>$current_term_id,'hide_empty'=>0) );
 	
 	if ( count($current_term_children) == 0 ) { // if current term has no children
-		$tipo_es = $current_term_data->name;
-		$tipo_en = $current_term_data->description;
-		$margen_out .= "
-			<h2>" .$tipo_es. "<br />
-				<span class='muted'>" .$tipo_en. "</span>
-			</h2>
-		";
+//		$tipo_es = $current_term_data->name;
+//		$tipo_en = $current_term_data->description;
+//		$margen_out .= "
+//			<h2>" .$tipo_es. "<br />
+//				<span class='muted'>" .$tipo_en. "</span>
+//			</h2>
+//		";
 	} else { // if current term has children
 		foreach ( $current_term_children as $child ) {
 			$tipo_es = $child->name;
@@ -103,18 +103,21 @@ elseif ( is_page() ) {
 	$tit_es = get_the_title();
 	$tit_en = get_post_meta( $post->ID, '_jch_pr_tit', true );
 
-	$margen_out = "
-		<h2>" .$tit_es. "<br />
-			<span class='muted'>" .$tit_en. "</span>
-		</h2>
-	";
+	if ( $post->post_parent == '0' ) { }
+	else {
+		$margen_out = "
+			<h2>" .$tit_es. "<br />
+				<span class='muted'>" .$tit_en. "</span>
+			</h2>
+		";
+	}
 } // end if single of proyecto custom post type
 ?>
 
 <?php if ( is_front_page() || is_tax('tipo') || is_single() ) { ?>
-	<div id= "margen" class="span1 box-margin affix">
+	<div id= "margen" class="span1 box-margin box-padding affix">
 <?php } else { ?>
-	<div id= "margen" class="span1 box-margin">
+	<div id= "margen" class="span1 box-margin box-padding">
 <?php } ?>
 		<?php echo $margen_out; ?>
 	</div>

@@ -15,17 +15,20 @@ Use it to make something cool, have fun, and share what you've learned with othe
 */
 
 body {
-	padding-top: 60px; /* When using the navbar-top-fixed */
+	padding-top: 70px; /* When using the navbar-top-fixed */
 }
 .container {
 	margin-left: 29px;
 }
 
 h1, h2, h3, h4, h5, h6 {
-	font-size: 12px;
-	line-height: 14px;
+	font-size: 14px;
+	line-height: 16px;
+	margin: 0 0 14px
 }
-
+p {
+	margin: 0 0 14px;
+}
 a:hover {
 	text-decoration: none;
 }
@@ -39,7 +42,7 @@ a:hover {
 	border-bottom: 1px solid transparent;
 }
 .box-padding {
-	padding: 7px 0;
+	padding: 7px 0 14px;
 }
 .box-margin {
 	margin-top: 14px;
