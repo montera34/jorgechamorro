@@ -93,22 +93,25 @@ elseif ( is_page() ) {
 	$img_class = "gallery-item";
 	$prefix = "pag";
 	include "loop.gallery.php";
-	if ( $cols == '2' ) {
-	// if 2 columns template
-		$loop_out .= "
+	if ( $loop_out != '' && $desc_es != '' || $loop_out != '' && $desc_en != '' ) { $loop_out .= "</div><div class='row'>"; }
+	if ( $desc_es != '' || $desc_en != '' ) { // if any description exists
+		if ( $cols == '2' ) {
+		// if 2 columns template
+			$loop_out .= "
 			<div class='span3'>
 			 " .$desc_es. "
 			</div>
 			<div class='span3 muted'>
 			 " .$desc_en. "
 			</div>
-		";
-	} else {
-		$loop_out .= "
+			";
+		} else {
+			$loop_out .= "
 			<div class='span6'>
 			 " .$desc_es. "
 			</div>
-		";
-	}
+			";
+		} // end if 1 or 2 cols
+	} // end any if description exists
 } // end if page
 ?>
