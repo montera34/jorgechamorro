@@ -35,6 +35,9 @@ a:hover {
 .box-borderb {
 	border-bottom: 1px solid #333;
 }
+.box-bordert {
+	border-top: 1px solid #333;
+}
 .current-borderb {
 	border-bottom: 2px solid #333;
 }

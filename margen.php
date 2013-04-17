@@ -63,11 +63,22 @@ elseif ( is_tax('tipo') ) {
 
 elseif ( is_single() && get_post_type( $post->ID ) == 'proyecto' ) {
 // if single of proyecto custom post type
-	$tipos = get_the_terms( $post->ID, "tipo" );
-	foreach ( $tipos as $tipo ) {
-		if ( $tipo->parent == 0 ) {
-			$tipo_es = $tipo->name;
-			$tipo_en = $tipo->description;
+	$post_terms = get_the_terms( $post->ID, "tipo" );
+	if ( has_term('arte','tipo') ) { $parent_term = "arte"; }
+	elseif ( has_term('diseno-grafico','tipo') ) { $parent_term = "diseno-grafico"; }
+	$parent_term_data = get_term_by( 'slug', $parent_term, 'tipo' );
+	$terms =  get_terms( "tipo",array('parent'=>$parent_term_data->term_id,'hide_empty'=>0) );
+
+	$margen_out = "";
+	foreach ( $terms as $tipo ) {
+		$tipo_es = $tipo->name;
+		$tipo_en = $tipo->description;
+		$term_link = get_term_link( $tipo_es, 'tipo' );
+		if ( has_term($tipo->slug,'tipo') ) {
+			$margen_out .= "<p>" .$tipo_es. "<br /><span class='muted'>" .$tipo_en. "</span></p>";
+		}
+		else {
+			$margen_out .= "<p><a href='" .$term_link. "'>" .$tipo_es. "<br /><span class='muted'>" .$tipo_en. "</span></a></p>";
 		}
 	}
 	$tit_es = get_the_title();
@@ -75,20 +86,16 @@ elseif ( is_single() && get_post_type( $post->ID ) == 'proyecto' ) {
 	$desc_es = get_the_content();
 	$desc_en = get_post_meta( $post->ID, '_jch_pr_desc', true );
 	$date = get_post_meta( $post->ID, '_jch_pr_date', true );
-
-	$margen_out = "
-		<p>" .$tipo_es. "<br /><span class='muted'>" .$tipo_en. "</span></p>
-		<h2>" .$tit_es. "<br />
+	$margen_out .= "
+		<h2 class='box-bordert'>" .$tit_es. "<br />
 			<span class='muted'>" .$tit_en. "</span>
 		</h2>
 		<p>
 			" .$desc_es. "<br />
 			<span class='muted'>" .$desc_en. "</span>
 		</p>
-		<p>
-			" .$date. "
-		</p>
 	";
+	if ( $date != '' ) { $margen_out .= "<p>" .$date. "</p>"; }
 } // end if single of proyecto custom post type
 
 //elseif ( is_page_template('page.news.php') ) {
