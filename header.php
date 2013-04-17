@@ -91,8 +91,13 @@ wp_head(); ?>
 				array('name_es'=>'Tienda','name_en'=>'Shop','class'=>'tienda','url'=>$genvars['blogurl'].'/tienda'),
 				array('name_es'=>'Información','name_en'=>'About','class'=>'informacion','url'=>$genvars['blogurl'].'/informacion'),
 			);
-			if ( get_query_var('tipo') == 'diseno-grafico' || is_single() && has_term("diseno-grafico","tipo") ) { $active = 1; }
-			elseif ( get_query_var('tipo') == 'arte' || is_single() && has_term("arte","tipo") ) { $active = 2; }
+			$current_term = get_query_var('tipo');
+			$current_term_data = get_term_by( 'slug', $current_term, 'tipo' );
+			$current_term_id = $current_term_data->term_id;
+			$current_parent_id = $current_term_data->parent;
+			if ( $current_term_data->parent != '0' ) { $current_parent_data = get_term_by( 'id', $current_term_data->parent, 'tipo' ); $current_parent = $current_parent_data->slug; }
+			if ( $current_term == 'diseno-grafico' || $current_parent == 'diseno-grafico'  || is_single() && has_term("diseno-grafico","tipo") ) { $active = 1; }
+			elseif ( $current_term == 'arte' || $current_parent == 'arte' || is_single() && has_term("arte","tipo") ) { $active = 2; }
 			elseif ( is_page('docencia') ) { $active = 3; }
 			elseif ( is_page_template('page.news.php') || get_post_type( $post->ID ) == 'post' && is_single() ) { $active = 4; }
 			elseif ( is_page('tienda') ) { $active = 5; }

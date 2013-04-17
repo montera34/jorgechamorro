@@ -26,17 +26,29 @@ elseif ( is_tax('tipo') ) {
 	$current_term_data = get_term_by( 'slug', $current_term, 'tipo' );
 	$current_term_id = $current_term_data->term_id;
 	$current_term_children = get_terms( "tipo",array('parent'=>$current_term_id,'hide_empty'=>0) );
-	
-	if ( count($current_term_children) == 0 ) { // if current term has no children
-//		$tipo_es = $current_term_data->name;
-//		$tipo_en = $current_term_data->description;
-//		$margen_out .= "
-//			<h2>" .$tipo_es. "<br />
-//				<span class='muted'>" .$tipo_en. "</span>
-//			</h2>
-//		";
-	} else { // if current term has children
+
+//print_r($wp_query->query_vars);
+//echo $current_term_data->parent; 
+	if ( $current_term_data->parent == '0' && count($current_term_children) != 0 ) {
+	// if current term is TOP TERM and HAS CHILDREN
 		foreach ( $current_term_children as $child ) {
+			$tipo_es = $child->name;
+			$tipo_en = $child->description;
+			$term_link = get_term_link( $tipo_es, 'tipo' );
+			$margen_out .= "
+				<h2><a href='" .$term_link. "'>" .$tipo_es. "<br />
+					<span class='muted'>" .$tipo_en. "</span></a>
+				</h2>
+			";
+		}
+
+	} elseif ( $current_term_data->parent == '0' && count($current_term_children) != 0 ) {
+	// if current term is TOP TERM and has NO CHILDREN
+
+	} elseif ( $current_term_data->parent != '0' ) {
+		$parent_term_id = $current_term_data->parent;
+		$current_term_brothers = get_terms( "tipo",array('parent'=>$parent_term_id,'hide_empty'=>0) );
+		foreach ( $current_term_brothers as $child ) {
 			$tipo_es = $child->name;
 			$tipo_en = $child->description;
 			$term_link = get_term_link( $tipo_es, 'tipo' );
