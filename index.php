@@ -12,7 +12,13 @@
 $args = array(
 	'post_type' => 'proyecto',
 	'posts_per_page' => '1',
-	'orderby' => 'rand'
+	'orderby' => 'rand',
+	'meta_query' => array(
+		array(
+			'key' => '_thumbnail_id',
+			'compare' => 'EXISTS',
+		),
+	),
 );
 $the_query = new WP_Query( $args );
 if ( $the_query->have_posts() ) {
