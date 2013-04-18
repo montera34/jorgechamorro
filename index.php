@@ -10,15 +10,15 @@
 // output: 1 proyecto
 // The Query
 $args = array(
-	'post_type' => 'proyecto',
+	'post_type' => 'jorgech_fimg',
 	'posts_per_page' => '1',
 	'orderby' => 'rand',
-	'meta_query' => array(
-		array(
-			'key' => '_thumbnail_id',
-			'compare' => 'EXISTS',
-		),
-	),
+//	'meta_query' => array(
+//		array(
+//			'key' => '_thumbnail_id',
+//			'compare' => 'EXISTS',
+//		),
+//	),
 );
 $the_query = new WP_Query( $args );
 if ( $the_query->have_posts() ) {
@@ -37,7 +37,7 @@ if ( $the_query->have_posts() ) {
 } else {
 // if no posts in this loop
 	$loop_out = "
-		<div class='span6 offset1'>
+		<div class='span6'>
 		<p>La portada está programada para que aparezca una imagen de un proyecto, elegido aleatoriamente de entre los proyectos que hayan sido seleccionados para aparecer en la portada. Aún no hay ningún proyecto que haya sido seleccionado para aparecer en portada.</p>
 		<p>Para hacer aparecer un proyecto en portada basta ir a la página del proyecto en el administrador de WordPress y añadir una imagen destacada mediante la caja Featured Image.</p>
 		</div>
