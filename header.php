@@ -42,7 +42,7 @@ $genvars = array(
 		echo $genvars['blogname'];
 
 		// Add the blog description for the home/front page.
-		$site_description = $genvars['blogdesc'];
+		$site_description = $genvars['blogdesc']. " | " .$genvars['blogdesc_en'];
 		if ( $site_description != '' && ( is_home() || is_front_page() ) )
 			echo " | $site_description";
 
@@ -52,6 +52,9 @@ $genvars = array(
 		?>
 </title>
 
+<meta content="Jorge Chamorro" name="author" />
+<meta content="<?php echo $genvars['blogdesc']. ", " .$genvars['blogdesc_en']; ?>" name="description" />
+<meta content="diseño, diseño gráfico, comunicación, comunicación visual, collage, arte, fotomontaje, cut and paste, taller de creatividad, tipografía, diseño web, design, graphic design, comunication, visual comunication, art, creativity workshop, typography, web design" name="keywords" />
 <link rel="profile" href="http://gmpg.org/xfn/11" />
 
 <!-- Bootstrap -->
