@@ -88,7 +88,7 @@ elseif ( is_single() && get_post_type( $post->ID ) == 'proyecto' ) {
 			<span class='muted'>" .$tit_en. "</span>
 		</h2>
 		<p>
-			" .$desc_es. "<br />
+			<div class='proy-desc'>" .$desc_es. "</div>
 			<span class='muted'>" .$desc_en. "</span>
 		</p>
 	";

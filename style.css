@@ -18,7 +18,7 @@ Use it to make something cool, have fun, and share what you've learned with othe
 }
 
 body {
-	padding-top: 70px; /* When using the navbar-top-fixed */
+	padding-top: 75px; /* When using the navbar-top-fixed */
 }
 .container {
 	margin-left: 29px;
@@ -31,6 +31,9 @@ h1, h2, h3, h4, h5, h6 {
 }
 p {
 	margin: 0 0 14px;
+}
+.boxtext p {
+	padding-right: 7px;
 }
 .muted {
 	color: #9d9d9d;
@@ -51,7 +54,7 @@ a:hover {
 	border-bottom: 2px solid #4e4e4e;
 }
 .current-borderb-w {
-	border-bottom: 1px solid transparent;
+	border-bottom: 2px solid transparent;
 }
 .box-padding {
 	padding: 7px 0 14px;
@@ -121,10 +124,12 @@ a:hover .muted {
 #premenu .current-borderb-w:hover {
 	border-bottom: 2px solid #4e4e4e;
 }
-.textes a {
+.textes a,
+.proy-desc a {
 	color: #000;
 }
-.textes a:hover {
+.textes a:hover,
+.proy-desc a:hover {
 	color: #9d9d9d;
 }
 
