@@ -25,10 +25,16 @@ $args = array(
 // The Query
 $the_query = new WP_Query( $args );
 if ( $the_query->have_posts() ) {
-
+	$query_items = $the_query->found_posts;
+	$query_count = 0;
 	// The Loop
-	while ( $the_query->have_posts() ) : $the_query->the_post(); ?>
-		<div class="container box-borderb">
+	while ( $the_query->have_posts() ) : $the_query->the_post();
+		$query_count++;
+		if ( $query_count == $query_items ) { // if last subpage ?>
+		<div class="content container">
+		<?php } else { ?>
+		<div class="content container box-borderb">
+		<?php } ?>
 			<div class="row">
 				<?php include "margen.php"; ?>
 				<div class="span6 box-padding box-margin">
