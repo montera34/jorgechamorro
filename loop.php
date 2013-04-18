@@ -11,7 +11,7 @@ if ( is_home() ) {
 		";
 	} else {
 		$loop_out = "
-		<div class='span6'>
+		<div class='span6 textes'>
 		<p>La portada está programada para que aparezca una imagen de un proyecto, elegido aleatoriamente de entre los proyectos que hayan sido seleccionados para aparecer en la portada. Aún no hay ningún proyecto que haya sido seleccionado para aparecer en portada.</p>
 		<p>Para hacer aparecer un proyecto en portada basta ir a la página del proyecto en el administrador de WordPress y añadir una imagen destacada mediante la caja Featured Image.</p>
 		</div>
@@ -57,19 +57,19 @@ elseif ( get_post_type( $post->ID ) == 'post' ) {
 	if ( has_post_thumbnail() ) {
 		$featured_img = get_the_post_thumbnail($post->ID,'mini');
 		$loop_out = "
-			<div class='span2'>
+			<div class='span2 newimg'>
 			" .$featured_img. "
 			</div>
-			<div class='span2'>
+			<div class='span2 textes newtext'>
 			 " .$desc_es. "
 			</div>
-			<div class='span2 muted'>
+			<div class='span2 muted newtext'>
 			 " .$desc_en. "
 			</div>
 		";
 	} else {
 		$loop_out = "
-			<div class='span3'>
+			<div class='span3 textes'>
 			 " .$desc_es. "
 			</div>
 			<div class='span3 muted'>
@@ -98,16 +98,16 @@ elseif ( is_page() ) {
 		if ( $cols == '2' ) {
 		// if 2 columns template
 			$loop_out .= "
-			<div class='span3'>
+			<div class='span3 boxtext textes'>
 			 " .$desc_es. "
 			</div>
-			<div class='span3 muted'>
+			<div class='span3 boxtext muted'>
 			 " .$desc_en. "
 			</div>
 			";
 		} else {
 			$loop_out .= "
-			<div class='span6'>
+			<div class='span6 boxtext textes'>
 			 " .$desc_es. "
 			</div>
 			";

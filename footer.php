@@ -31,8 +31,11 @@ if ( is_single() ) {
 	</div>
 </div>
 
-<? } // end share buttons
-?>
+<?php } // end share buttons
+else { ?>
+<div id="epi" class="container">
+</div>
+<?php } ?>
 
 <script src="http://code.jquery.com/jquery-latest.js"></script>
 <script src="<?php echo $genvars['blogtheme']; ?>/bootstrap/js/bootstrap.min.js"></script>

@@ -3,7 +3,7 @@ if ( is_home() ) {
 // if is home page
 	$desc_es = $genvars['blogdesc'];
 	$desc_en = $genvars['blogdesc_en'];
-	$user_mail = $genvars['user_mail'];
+//	$user_mail = $genvars['user_mail'];
 	$user_data = get_user_by('email', $user_mail);
 	$user_phone = $user_data->phone;
 
@@ -11,10 +11,6 @@ if ( is_home() ) {
 		<h2>" .$desc_es. "<br />
 			<span class='muted'>" .$desc_en. "</span>
 		</h2>
-		<div>
-			<div>" .$user_mail. "</div>
-			<div>" .$user_phone. "</div>
-		</div>
 	";
 } // end if is home page
 
@@ -75,7 +71,7 @@ elseif ( is_single() && get_post_type( $post->ID ) == 'proyecto' ) {
 		$tipo_en = $tipo->description;
 		$term_link = get_term_link( $tipo_es, 'tipo' );
 		if ( has_term($tipo->slug,'tipo') ) {
-			$margen_out .= "<p>" .$tipo_es. "<br /><span class='muted'>" .$tipo_en. "</span></p>";
+			$margen_out .= "<p class='current-tipo'><a href='" .$term_link. "'>" .$tipo_es. "<br /><span class='muted'>" .$tipo_en. "</span></a></p>";
 		}
 		else {
 			$margen_out .= "<p><a href='" .$term_link. "'>" .$tipo_es. "<br /><span class='muted'>" .$tipo_en. "</span></a></p>";
@@ -86,8 +82,9 @@ elseif ( is_single() && get_post_type( $post->ID ) == 'proyecto' ) {
 	$desc_es = get_the_content();
 	$desc_en = get_post_meta( $post->ID, '_jch_pr_desc', true );
 	$date = get_post_meta( $post->ID, '_jch_pr_date', true );
+	if ( has_term('diseno-grafico','tipo') ) { $tit_class = " class='box-bordert'"; } else { $tit_class = ""; }
 	$margen_out .= "
-		<h2 class='box-bordert'>" .$tit_es. "<br />
+		<h2" .$tit_class. ">" .$tit_es. "<br />
 			<span class='muted'>" .$tit_en. "</span>
 		</h2>
 		<p>

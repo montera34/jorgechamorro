@@ -16,7 +16,6 @@
 // main page vars
 global $genvars;
 $genvars = array(
-	//'user_mail' => 'jorge@jorgechamorro.es', // main user mail
 	'user_mail' => 'jorge@jorgechamorro.es', // main user mail
 	'blogname' => get_bloginfo('name'), // title
 	'blogdesc' => get_bloginfo( 'description', 'display' ), // description
@@ -70,7 +69,7 @@ $genvars = array(
 wp_head(); ?>
 </head>
 
-<body>
+<body <?php body_class(); ?>>
 
 <div id="pre" class="navbar navbar-fixed-top">
 <div class="navbar-inner">
@@ -79,7 +78,7 @@ wp_head(); ?>
 		<div class="span1">
 			<h1 class="box-padding"><a href="<?php echo $genvars['blogurl']; ?>"><?php echo $genvars['blogname']; ?></a></h1>
 		</div>
-		<div class="span6 box-borderb">
+		<div id="premenu" class="span6 box-borderb">
 		<div class="row">
 			<?php
 			// menu build
@@ -89,7 +88,7 @@ wp_head(); ?>
 				array('name_es'=>'Docencia','name_en'=>'Teaching','class'=>'docencia','url'=>$genvars['blogurl'].'/docencia'),
 				array('name_es'=>'Noticias','name_en'=>'News','class'=>'news','url'=>$genvars['blogurl'].'/noticias'),
 				array('name_es'=>'Tienda','name_en'=>'Shop','class'=>'tienda','url'=>$genvars['blogurl'].'/tienda'),
-				array('name_es'=>'Información','name_en'=>'About','class'=>'informacion','url'=>$genvars['blogurl'].'/informacion'),
+				array('name_es'=>'Información / Contacto','name_en'=>'About / Contact','class'=>'informacion','url'=>$genvars['blogurl'].'/informacion'),
 			);
 			$current_term = get_query_var('tipo');
 			$current_term_data = get_term_by( 'slug', $current_term, 'tipo' );

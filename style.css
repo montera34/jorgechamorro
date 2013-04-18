@@ -13,6 +13,9 @@ Text Domain: jorgech
 This theme, like WordPress, is licensed under the GPL.
 Use it to make something cool, have fun, and share what you've learned with others.
 */
+#wpadminbar {
+	display: none;
+}
 
 body {
 	padding-top: 70px; /* When using the navbar-top-fixed */
@@ -23,23 +26,29 @@ body {
 
 h1, h2, h3, h4, h5, h6 {
 	font-size: 14px;
-	line-height: 16px;
+	line-height: 18px;
 	margin: 0 0 14px
 }
 p {
 	margin: 0 0 14px;
 }
+.muted {
+	color: #9d9d9d;
+}
 a:hover {
 	text-decoration: none;
 }
+
+/* elements' margins and paddings */
 .box-borderb {
-	border-bottom: 1px solid #333;
+	border-bottom: 1px solid #4e4e4e;
 }
 .box-bordert {
-	border-top: 1px solid #333;
+	border-top: 1px solid #4e4e4e;
+	padding-top: 14px;
 }
 .current-borderb {
-	border-bottom: 2px solid #333;
+	border-bottom: 2px solid #4e4e4e;
 }
 .current-borderb-w {
 	border-bottom: 1px solid transparent;
@@ -47,45 +56,94 @@ a:hover {
 .box-padding {
 	padding: 7px 0 14px;
 }
+.page .content .box-padding {
+	padding: 7px 0 0;
+}
+.single-proyecto .content .box-padding {
+	padding: 7px 0 7px;
+}
 .box-margin {
 	margin-top: 14px;
 	margin-bottom: 14px;
 }
-.gallery-item {
+.page .content .box-margin,
+.single-proyecto .content .box-margin {
+	margin-top: 14px;
+	margin-bottom: 0;
+}
+.noticia .box-margin {
+	margin-top: 18px !important;
+	margin-bottom: 0;
+}
+.page .content .boxtext {
 	margin-bottom: 7px;
 }
-.mosac-item {
-	margin-bottom: 14px;
+.page .content .boximg {
+	margin-bottom: 16px;
 }
-.mosac-item:hover img {
-	background-color: black;
-	opacity: 0.8;
+.noticia .newimg {
+	padding-bottom: 25px;
 }
-.mosac-item {
-	min-height: 170px;
+.noticia .newtext {
+	padding-bottom: 7px;
+}
+.gallery-item {
+	margin-bottom: 7px;
 }
 
 /* header navbar */
 #pre {
 	padding-top: 14px;
+	background-color: #fff;
 }
 #pre,
 #pre .navbar-inner {
-	background-color: white;
 	border: none;
-	background-image: none;
 	box-shadow: none;
 	-webkit-box-shadow: none;
 	-moz-box-shadow: none;
 	margin-bottom: 22px;
 }
 
+/* links */
+#pre a {
+	display: block;
+}
+#pre .current-borderb a,
+#margen .current-tipo a {
+	color: #000;
+}
+#margen .current-tipo a span,
+#pre .current-borderb a span,
+a:hover .muted {
+	color: #4e4e4e;
+}
+#premenu .current-borderb-w:hover {
+	border-bottom: 2px solid #4e4e4e;
+}
+.textes a {
+	color: #000;
+}
+.textes a:hover {
+	color: #9d9d9d;
+}
+
 /* margen */
-#margen p {
-	margin: 7px 0;
+
+/* mosac */
+.mosac-item {
+	margin-bottom: 16px;
+	min-height: 170px;
+}
+.mosac-item img {
+	margin-bottom: 3px;
+}
+.mosac-item:hover img {
+	background-color: black;
+	opacity: 0.8;
 }
 
 /* footer social */
 #epi {
-	margin-top: -21px;
+	margin-bottom: 21px;
 }
