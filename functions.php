@@ -32,6 +32,37 @@ function create_post_type() {
 		'_builtin' => false,
 		'_edit_link' => 'post.php?post=%d',
 	));
+	// Features images in home page
+	register_post_type( 'jorgech_fimg', array(
+		'labels' => array(
+			'name' => __( 'Imágenes de portada' ),
+			'singular_name' => __( 'Imagen de portada' ),
+			'add_new_item' => __( 'Añadir una imagen' ),
+			'edit' => __( 'Editar' ),
+			'edit_item' => __( 'Editar esta imagen' ),
+			'new_item' => __( 'Nueva imagen' ),
+			'view' => __( 'Ver imagen' ),
+			'view_item' => __( 'Ver esta imagen' ),
+			'search_items' => __( 'Buscar imagenes' ),
+			'not_found' => __( 'No se ha encontrado ninguna imagen' ),
+			'not_found_in_trash' => __( 'Ninguna imagen en la papelera' ),
+			'parent' => __( 'Parent' )
+		),
+		'has_archive' => false,
+		'public' => true,
+		'publicly_queryable' => true,
+		'exclude_from_search' => true,
+		'menu_position' => 5,
+		//'menu_icon' => get_template_directory_uri() . '/images/icon-post.type-integrantes.png',
+		'hierarchical' => false, // if true this post type will be as pages
+		'query_var' => true,
+		'supports' => array('thumbnail'),
+		//'rewrite' => array('slug'=>'proyecto','with_front'=>false),
+		'can_export' => true,
+		'_builtin' => false,
+		'_edit_link' => 'post.php?post=%d',
+	));
+
 }
 
 // Custom Taxonomies
@@ -263,7 +294,7 @@ function be_initialize_cmb_meta_boxes() {
 }
 
 // Adding featured image to the custom post types
-add_theme_support( 'post-thumbnails', array( 'post','proyecto') );
+add_theme_support( 'post-thumbnails', array( 'post','proyecto','jorgech_fimg') );
 
 // extra fields in user profile
 add_action( 'show_user_profile', 'extra_user_profile_fields' );
