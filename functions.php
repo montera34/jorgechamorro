@@ -282,6 +282,24 @@ function be_sample_metaboxes( $meta_boxes ) {//metaboxes common variables to all
 			),
 		);	
 	} // end while rows
+	// sticky content in home page
+	$meta_boxes[] = array(
+		'id' => 'home-sticky',
+		'title' => 'Contenido fijo en portada',
+		'pages' => array('jorgech_fimg'), // post type
+		'context' => 'side',
+		'priority' => 'high',
+		'show_names' => false, // Show field names on the left
+		'fields' => array(
+			array(
+				'name' => '',
+				'desc' => 'Marca el checkbox para inhabilitar el sistema de contenido aleatorio de la portada, y que este contenido aparezca de manera fija.',
+				'id' => $prefix . 'home_sticky',
+				'type' => 'checkbox',
+			),
+		),
+	);
+	
 	return $meta_boxes;
 }
 add_filter( 'cmb_meta_boxes', 'be_sample_metaboxes' );
