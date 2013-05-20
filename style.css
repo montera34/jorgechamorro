@@ -13,9 +13,6 @@ Text Domain: jorgech
 This theme, like WordPress, is licensed under the GPL.
 Use it to make something cool, have fun, and share what you've learned with others.
 */
-#wpadminbar {
-	display: none;
-}
 
 body {
 	padding-top: 75px; /* When using the navbar-top-fixed */
@@ -134,6 +131,9 @@ a:hover .muted {
 }
 
 /* margen */
+#credits {
+	margin-top: 590px;
+}
 
 /* mosac */
 .mosac-item {

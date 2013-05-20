@@ -11,6 +11,11 @@ if ( is_home() ) {
 		<h2>" .$desc_es. "<br />
 			<span class='muted'>" .$desc_en. "</span>
 		</h2>
+		<div id='credits'>
+			Desarrollo web<br />
+			<span class='muted'>Web development</span><br />
+			<a href='http://montera34.com'>montera34</a>
+		</div>
 	";
 } // end if is home page
 
