@@ -14,7 +14,8 @@ $args = array(
 	'meta_query' => array(
 		array(
 			'key' => '_jch_home_sticky',
-			'compare' => 'EXISTS',
+			'compare' => '=',
+			'value' => 'on'
 		),
 	),
 );
