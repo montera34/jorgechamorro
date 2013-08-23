@@ -131,8 +131,16 @@ a:hover .muted {
 }
 
 /* margen */
-#credits {
-	margin-top: 590px;
+/* Portrait tablet to landscape and desktop */
+@media (min-width: 768px) {
+	#credits {
+		margin-top: 590px;
+	}
+}
+@media (max-width: 767px) {
+	.affix {
+		position: relative;
+	}
 }
 
 /* mosac */

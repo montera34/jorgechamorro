@@ -87,7 +87,10 @@ elseif ( is_single() && get_post_type( $post->ID ) == 'proyecto' ) {
 	$desc_es = get_the_content();
 	$desc_en = get_post_meta( $post->ID, '_jch_pr_desc', true );
 	$date = get_post_meta( $post->ID, '_jch_pr_date', true );
-	if ( has_term('diseno-grafico','tipo') ) { $tit_class = " class='box-bordert'"; } else { $tit_class = ""; }
+	//$previous_post = get_previous_posts_link('Anterior proyecto<br /><span class="muted">Previous project</span>');
+	$previous_post_perma = get_permalink(get_adjacent_post(false,'',false));
+	$next_post_perma = get_permalink(get_adjacent_post(false,'',true));
+	if ( has_term('diseno-grafico','tipo') ) { $tit_class = " class='box-bordert'"; $adjacent_class = $tit_class; } else { $tit_class = ""; $adjacent_class = " class='box-bordert'"; }	
 	$margen_out .= "
 		<h2" .$tit_class. ">" .$tit_es. "<br />
 			<span class='muted'>" .$tit_en. "</span>
@@ -96,6 +99,8 @@ elseif ( is_single() && get_post_type( $post->ID ) == 'proyecto' ) {
 			<div class='proy-desc'>" .$desc_es. "</div>
 			<span class='muted'>" .$desc_en. "</span>
 		</p>
+		<p" .$adjacent_class. "><a href='" .$next_post_perma. "'>Siguiente projecto<br /><span class='muted'>Next project</span></a></p>
+		<p><a href='" .$previous_post_perma. "'>Anterior projecto<br /><span class='muted'>Previous project</span></a></p>
 	";
 	if ( $date != '' ) { $margen_out .= "<p>" .$date. "</p>"; }
 } // end if single of proyecto custom post type
