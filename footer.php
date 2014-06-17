@@ -32,8 +32,13 @@ if ( is_single() ) {
 </div>
 
 <?php } // end share buttons
-else { ?>
+elseif ( is_home() ) { ?>
 <div id="epi" class="container">
+	<div id='credits' class="span1">
+		Desarrollo web<br />
+		<span class='muted'>Web development</span><br />
+		<a href='http://montera34.com'>montera34</a>
+	</div>
 </div>
 <?php } ?>
 

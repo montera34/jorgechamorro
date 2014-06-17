@@ -11,11 +11,6 @@ if ( is_home() ) {
 		<h2>" .$desc_es. "<br />
 			<span class='muted'>" .$desc_en. "</span>
 		</h2>
-		<div id='credits'>
-			Desarrollo web<br />
-			<span class='muted'>Web development</span><br />
-			<a href='http://montera34.com'>montera34</a>
-		</div>
 	";
 } // end if is home page
 
@@ -87,9 +82,13 @@ elseif ( is_single() && get_post_type( $post->ID ) == 'proyecto' ) {
 	$desc_es = get_the_content();
 	$desc_en = get_post_meta( $post->ID, '_jch_pr_desc', true );
 	$date = get_post_meta( $post->ID, '_jch_pr_date', true );
-	//$previous_post = get_previous_posts_link('Anterior proyecto<br /><span class="muted">Previous project</span>');
-	$previous_post_perma = get_permalink(get_adjacent_post(false,'',false));
-	$next_post_perma = get_permalink(get_adjacent_post(false,'',true));
+//	$previous_post = mod_get_adjacent_post('prev','proyecto');
+//	$previous_post_perma = get_permalink($previous_post->ID);
+//	$next_post = mod_get_adjacent_post('next','proyecto');
+//	$next_post_perma = get_permalink($next_post->ID);
+//	if ( has_term('diseno-grafico') ) { $excluded = "2"; } else { $excluded = "3"; }
+	$previous_post_perma = get_permalink(get_adjacent_post(false,$excluded, true));
+	$next_post_perma = get_permalink(get_adjacent_post(false,$excluded, false));
 	if ( has_term('diseno-grafico','tipo') ) { $tit_class = " class='box-bordert'"; $adjacent_class = $tit_class; } else { $tit_class = ""; $adjacent_class = " class='box-bordert'"; }	
 	$margen_out .= "
 		<h2" .$tit_class. ">" .$tit_es. "<br />
@@ -99,10 +98,12 @@ elseif ( is_single() && get_post_type( $post->ID ) == 'proyecto' ) {
 			<div class='proy-desc'>" .$desc_es. "</div>
 			<span class='muted'>" .$desc_en. "</span>
 		</p>
-		<p" .$adjacent_class. "><a href='" .$next_post_perma. "'>Siguiente projecto<br /><span class='muted'>Next project</span></a></p>
-		<p><a href='" .$previous_post_perma. "'>Anterior projecto<br /><span class='muted'>Previous project</span></a></p>
 	";
 	if ( $date != '' ) { $margen_out .= "<p>" .$date. "</p>"; }
+//	$margen_out .= "
+//		<p" .$adjacent_class. "><a href='" .$next_post_perma. "'>Siguiente projecto<br /><span class='muted'>Next project</span></a></p>
+//		<p><a href='" .$previous_post_perma. "'>Anterior projecto<br /><span class='muted'>Previous project</span></a></p>
+//	";
 } // end if single of proyecto custom post type
 
 //elseif ( is_page_template('page.news.php') ) {
