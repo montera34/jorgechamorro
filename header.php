@@ -88,7 +88,7 @@ wp_head(); ?>
 				array('name_es'=>'Docencia','name_en'=>'Teaching','class'=>'docencia','url'=>$genvars['blogurl'].'/docencia'),
 				array('name_es'=>'Noticias','name_en'=>'News','class'=>'news','url'=>$genvars['blogurl'].'/noticias'),
 				array('name_es'=>'Tienda','name_en'=>'Shop','class'=>'tienda','url'=>$genvars['blogurl'].'/tienda'),
-				array('name_es'=>'Información / Contacto','name_en'=>'About / Contact','class'=>'informacion','url'=>$genvars['blogurl'].'/informacion'),
+				array('name_es'=>'Info / Contacto','name_en'=>'About / Contact','class'=>'informacion','url'=>$genvars['blogurl'].'/informacion'),
 			);
 			$current_term = get_query_var('tipo');
 			$current_term_data = get_term_by( 'slug', $current_term, 'tipo' );
