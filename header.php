@@ -52,9 +52,6 @@ $genvars = array(
 		?>
 </title>
 
-<meta content="Jorge Chamorro" name="author" />
-<meta content="<?php echo $genvars['blogdesc']. ", " .$genvars['blogdesc_en']; ?>" name="description" />
-<meta content="diseño, diseño gráfico, comunicación, comunicación visual, collage, arte, fotomontaje, cut and paste, taller de creatividad, tipografía, diseño web, design, graphic design, comunication, visual comunication, art, creativity workshop, typography, web design" name="keywords" />
 <link rel="profile" href="http://gmpg.org/xfn/11" />
 
 <!-- Bootstrap -->
