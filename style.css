@@ -22,7 +22,7 @@ body { padding-top: 90px; }
 @media (max-width: 767px) {
 	body {padding-top: 0; }
 	.container { margin-left: auto; }
-	#pre a { padding: 0 15px;}
+	.pre-mobile { margin: auto 15px;}
 }
 @media (min-width: 768px) and (max-width: 979px) {
 	body { padding-top: 100px; }

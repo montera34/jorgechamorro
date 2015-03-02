@@ -74,7 +74,7 @@ wp_head(); ?>
 <div id="pre" class="navbar navbar-fixed-top">
 <div class="navbar-inner">
 <div class="container">
-	<div class="row">
+	<div class="row pre-mobile">
 		<div class="span1">
 			<h1 class="box-padding"><a href="<?php echo $genvars['blogurl']; ?>"><?php echo $genvars['blogname']; ?></a></h1>
 		</div>
