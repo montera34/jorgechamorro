@@ -79,7 +79,7 @@ function jorgech_build_taxonomies() {
 }
 
 //Add metaboxes to Case Study Custom post type
-function jorgech__metaboxes( $meta_boxes ) {//metaboxes common variables to all scales
+function jorgech_metaboxes( $meta_boxes ) {//metaboxes common variables to all scales
 	$prefix = '_jch_'; // Prefix for all fields
 	$meta_boxes[] = array(
 		'id' => 'english',
