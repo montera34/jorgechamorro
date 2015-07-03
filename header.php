@@ -84,7 +84,7 @@ wp_head(); ?>
 			// menu build
 			$items = array(
 				array('name_es'=>'Diseño gráfico','name_en'=>'Graphic design','class'=>'design','url'=>$genvars['blogurl'].'/tipo/diseno-grafico'),
-				array('name_es'=>'Arte','name_en'=>'Art','class'=>'art','url'=>$genvars['blogurl'].'/tipo/arte'),
+				array('name_es'=>'Collage','name_en'=>'Collage','class'=>'art','url'=>$genvars['blogurl'].'/tipo/arte'),
 				array('name_es'=>'Docencia','name_en'=>'Teaching','class'=>'docencia','url'=>$genvars['blogurl'].'/docencia'),
 				array('name_es'=>'Noticias','name_en'=>'News','class'=>'news','url'=>$genvars['blogurl'].'/noticias'),
 				array('name_es'=>'Tienda','name_en'=>'Shop','class'=>'tienda','url'=>$genvars['blogurl'].'/tienda'),
