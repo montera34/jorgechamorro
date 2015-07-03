@@ -7,6 +7,7 @@ get_header(); ?>
 $page_id = get_the_ID();
 $args = array(
 	'post_type' => 'post',
+	'posts_per_page' => '-1'
 );
 // The Query
 $the_query = new WP_Query( $args );
