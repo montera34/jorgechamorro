@@ -1,8 +1,8 @@
 <?php
 // Custom post types
-add_action( 'init', 'create_post_type', 0 );
+add_action( 'init', 'jorgech_create_post_type', 0 );
 
-function create_post_type() {
+function jorgech_create_post_type() {
 	// Proyectos custom post type
 	register_post_type( 'proyecto', array(
 		'labels' => array(
@@ -66,26 +66,20 @@ function create_post_type() {
 }
 
 // Custom Taxonomies
-add_action( 'init', 'build_taxonomies', 0 );
+add_action( 'init', 'jorgech_build_taxonomies', 0 );
 
-function build_taxonomies() {
-register_taxonomy( 'tipo', 'proyecto', array( // Tipo taxonomy
+function jorgech_build_taxonomies() {
+	register_taxonomy( 'tipo', 'proyecto', array( // Tipo taxonomy
 	'hierarchical' => true,
 	'label' => 'Tipos',
 	'name' => 'Tipos',
 	'query_var' => true,
 	'show_admin_column' => true,
 	'rewrite' => array( 'slug' => 'tipo', 'with_front' => false ),) );
-//register_taxonomy( 'fecha', 'proyecto', array( // Fecha taxonomy
-//	'hierarchical' => true,
-//	'label' => 'Fecha',
-//	'name' => 'Fecha',
-//	'query_var' => true,
-//	'rewrite' => array( 'slug' => 'fecha', 'with_front' => false ),) );
 }
 
 //Add metaboxes to Case Study Custom post type
-function be_sample_metaboxes( $meta_boxes ) {//metaboxes common variables to all scales
+function jorgech__metaboxes( $meta_boxes ) {//metaboxes common variables to all scales
 	$prefix = '_jch_'; // Prefix for all fields
 	$meta_boxes[] = array(
 		'id' => 'english',
@@ -303,10 +297,10 @@ function be_sample_metaboxes( $meta_boxes ) {//metaboxes common variables to all
 	
 	return $meta_boxes;
 }
-add_filter( 'cmb_meta_boxes', 'be_sample_metaboxes' );
+add_filter( 'cmb_meta_boxes', 'jorgech_metaboxes' );
 // Initialize the metabox class
-add_action( 'init', 'be_initialize_cmb_meta_boxes', 9999 );
-function be_initialize_cmb_meta_boxes() {
+add_action( 'init', 'jorgech_initialize_cmb_meta_boxes', 9999 );
+function jorgech_initialize_cmb_meta_boxes() {
 	if ( !class_exists( 'cmb_Meta_Box' ) ) {
 		require_once( 'lib/metabox/init.php' );
 	}
@@ -316,34 +310,34 @@ function be_initialize_cmb_meta_boxes() {
 add_theme_support( 'post-thumbnails', array( 'post','proyecto','jorgech_fimg') );
 
 // extra fields in user profile
-add_action( 'show_user_profile', 'extra_user_profile_fields' );
-add_action( 'edit_user_profile', 'extra_user_profile_fields' );
+add_action( 'show_user_profile', 'jorgech_extra_user_profile_fields' );
+add_action( 'edit_user_profile', 'jorgech_extra_user_profile_fields' );
 
-	function extra_user_profile_fields( $user ) {
- 		$extra_fields = array(
-			array(
-				'name' => 'Teléfono',
-				'label' => 'phone'
-			),
-		);
+function jorgech_extra_user_profile_fields( $user ) {
+	$extra_fields = array(
+		array(
+			'name' => 'Teléfono',
+			'label' => 'phone'
+		),
+	);
 ?>
-		<h3><?php _e("Información adicional", "blank"); ?></h3>
-		<table class="form-table">
-		<?php foreach ( $extra_fields as $extra_field ) { ?>	
-			<tr>
-				<th><label for="<?php echo $extra_field['label']; ?>"><?php echo $extra_field['name']; ?></label></th>
-				<td>
-					<input type="text" name="<?php echo $extra_field['label']; ?>" id="<?php echo $extra_field['label']; ?>" value="<?php echo esc_attr( get_the_author_meta( $extra_field['label'], $user->ID ) ); ?>" class="regular-text" /><br />
-				</td>
-			</tr>
-		<?php } // end loop extra fields ?>
-		</table>
+	<h3><?php _e("Información adicional", "blank"); ?></h3>
+	<table class="form-table">
+	<?php foreach ( $extra_fields as $extra_field ) { ?>	
+		<tr>
+			<th><label for="<?php echo $extra_field['label']; ?>"><?php echo $extra_field['name']; ?></label></th>
+			<td>
+				<input type="text" name="<?php echo $extra_field['label']; ?>" id="<?php echo $extra_field['label']; ?>" value="<?php echo esc_attr( get_the_author_meta( $extra_field['label'], $user->ID ) ); ?>" class="regular-text" /><br />
+			</td>
+		</tr>
+	<?php } // end loop extra fields ?>
+	</table>
 <?php } // end extra_user_profile_fields function
  
-add_action( 'personal_options_update', 'save_extra_user_profile_fields' );
-add_action( 'edit_user_profile_update', 'save_extra_user_profile_fields' );
+add_action( 'personal_options_update', 'jorgech_save_extra_user_profile_fields' );
+add_action( 'edit_user_profile_update', 'jorgech_save_extra_user_profile_fields' );
  
-function save_extra_user_profile_fields( $user_id ) {
+function jorgech_save_extra_user_profile_fields( $user_id ) {
  
 	if ( !current_user_can( 'edit_user', $user_id ) ) { return false; }
  		$extra_fields = array(
